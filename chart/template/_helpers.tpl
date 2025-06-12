@@ -1,4 +1,3 @@
-
 {{- define "pythonFlask" -}}
 pythonFlask
 {{- end }}

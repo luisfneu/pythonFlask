@@ -14,3 +14,11 @@ Guide: [Flask Guide](https://flask.palletsprojects.com/en/stable/installation/)
     . .venv/bin/activate
 ##### Install Flask
     pip install flask
+
+## docker
+    docker build -t python-flask . 
+    docker image tag luisneu/python-flask luisneu/python-flask:latest
+    docker run -p 8081:5000 python-flask
+
+
+![page](image.png)
