@@ -20,5 +20,7 @@ Guide: [Flask Guide](https://flask.palletsprojects.com/en/stable/installation/)
     docker image tag luisneu/python-flask luisneu/python-flask:latest
     docker run -p 8081:5000 python-flask
 
+    docker push luisneu/python-flask:tagname
+
 
 ![page](image.png)
