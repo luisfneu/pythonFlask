@@ -1,15 +1,37 @@
 replicaCount: 1
 
+# image:
+#   repository: <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.<YOUR_AWS_REGION>.amazonaws.com/<YOUR_APP_NAME>
+#   tag: latest
+#   pullPolicy: IfNotPresent
+#
+# Example ECR URI format. Replace placeholders with your actual AWS Account ID, region, and ECR repository name.
 image:
-  repository: your-dockerhub-user/flask-app
+  repository: YOUR_AWS_ACCOUNT_ID.dkr.ecr.YOUR_AWS_REGION.amazonaws.com/YOUR_APP_NAME
   pullPolicy: IfNotPresent
   tag: "latest"
 
+# service:
+#   type: LoadBalancer # Changed from NodePort to LoadBalancer to automatically provision an AWS Elastic Load Balancer.
+#   port: 5000
 service:
-  type: NodePort
+  type: LoadBalancer
   port: 5000
 
-resources: {}
+# It's recommended to define resource requests and limits for your containers,
+# especially for production workloads on AWS, to ensure stable performance and resource allocation.
+# Example:
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
 nodeSelector: {}
 
